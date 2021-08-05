@@ -1,0 +1,132 @@
+[
+    {
+        "id": "125b9ace8dc7681a",
+        "type": "tab",
+        "label": "Flow 3B",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "355c68ae5bd6db54",
+        "type": "inject",
+        "z": "125b9ace8dc7681a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "b5c50262e2cf2ac6"
+            ]
+        ]
+    },
+    {
+        "id": "b5c50262e2cf2ac6",
+        "type": "function",
+        "z": "125b9ace8dc7681a",
+        "name": "",
+        "func": "msg.payload = '{\"ID\":\"Fabian Galicia\",\"Temp\":\"12\",\"mnsg\":\"Esto es una prueba\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 180,
+        "wires": [
+            [
+                "8b3f247d420b9b98"
+            ]
+        ]
+    },
+    {
+        "id": "8b3f247d420b9b98",
+        "type": "json",
+        "z": "125b9ace8dc7681a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "3d415c279f89a5ec",
+                "255fe8da62b7f365"
+            ]
+        ]
+    },
+    {
+        "id": "3d415c279f89a5ec",
+        "type": "mqtt out",
+        "z": "125b9ace8dc7681a",
+        "name": "",
+        "topic": "codigoIoT/SIC/flow3/temp",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c1b1164bdc166fb",
+        "x": 640,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "255fe8da62b7f365",
+        "type": "debug",
+        "z": "125b9ace8dc7681a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6c1b1164bdc166fb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "3.66.119.222",
+        "port": "1883",
+        "clientid": "edd_cort051",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
